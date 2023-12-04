@@ -10,11 +10,13 @@ import { useNavigate } from 'react-router-dom';
 
 
 type Props = {
+  isLoading: boolean;
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
   registerIsNeeded: boolean;
   setRegisterIsNeeded: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const Form = ({registerIsNeeded, setRegisterIsNeeded}: Props) => {
+const Form = ({registerIsNeeded, setRegisterIsNeeded, isLoading, setIsLoading}: Props) => {
   const [errorMsg, setErrorMsg] = useState<string | null>();
 
   const authCtx = useContext(AuthContext);
@@ -51,19 +53,25 @@ const Form = ({registerIsNeeded, setRegisterIsNeeded}: Props) => {
   });
 
   const authUser = async (data: FormValues) => {
+    setIsLoading(true);
+
     if(registerIsNeeded) {
       try {
         await createNewUser(data);
         setRegisterIsNeeded(false);
+        setIsLoading(false);
       } catch (error:any) {
         alert(error.message);
+        setIsLoading(false);
       }
     } else {
       try {
         const response = await loginUser(data);
         authCtx?.login(response.user, response.token);
         navigate('/home');
+        setIsLoading(false);
       } catch (error:any) {
+        setIsLoading(false);
         if(error.response.data.message) {
           setErrorMsg(error.response.data.message);
         } else {

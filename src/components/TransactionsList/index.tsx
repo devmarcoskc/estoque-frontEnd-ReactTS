@@ -22,9 +22,9 @@ const TransactionsList = ({transactions, currentPage, setCurrentPage}: Props) =>
   });
     
   const TransactionsToRender = transactions?.filter((transaction) => {
-    return transaction.nome_produto.includes(filters.nome?.toLowerCase() || '')
+    return transaction.nome_produto.toLowerCase().includes(filters.nome?.toLowerCase() || '')
   }).filter((transaction) => {
-    return transaction.tipo.includes(filters.tipo || '')
+    return transaction.tipo.toLowerCase().includes(filters.tipo?.toLowerCase() || '')
   }).filter((transaction) => {
     return transaction.localização.toLowerCase().includes(filters.localização?.toLowerCase() || '');
   }).filter((transaction) => {

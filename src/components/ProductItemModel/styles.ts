@@ -147,7 +147,6 @@ export const DefaultButton = styled.button`
   padding: 10px;
   width: 30%;
   font-size: 15px;
-  font-weight: bold;
   color: white;
   cursor: pointer;
   transition: all ease .7s;

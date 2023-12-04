@@ -10,6 +10,13 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
   }
+`;
+
+export const SpanWarning = styled.span`
+  font-size: 14px;
+  color: ${Colors.primary300};
+  max-width: 60%;
+  margin-top: 10px;
 `
 
 export const Section = styled.section`

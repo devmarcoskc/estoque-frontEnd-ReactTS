@@ -26,7 +26,7 @@ const ProductsList = ({products, setProducts, currentPage, setCurrentPage}: Prop
   const ProductsToRender = products.filter((product) => {
     return product.nome.toLowerCase().includes(filters.nome?.toLowerCase() || '')
   }).filter((product) => {
-    return product.código_de_identificação.toLowerCase().includes(filters.código_de_identificação || '')
+    return product.código_de_identificação.toLowerCase().includes(filters.código_de_identificação?.toLowerCase() || '')
   }).filter((product) => {
     return product.localização.toLowerCase().includes(filters.localização?.toLowerCase() || '');
   }).filter((product) => {

@@ -3,9 +3,17 @@ import {useState} from 'react';
 import Banner from '../../assets/images/estoque-banner.png'
 import CompanyLogo from '../../assets/images/estoquemais.png';
 import Form from '../../components/FormAuth';
+import LoadingArea from '../../components/Loading/index.tsx';
 
 const Login = () => {
   const [registerIsNeeded, setRegisterIsNeeded] = useState<boolean>(false)
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  if(isLoading) {
+    return (
+      <LoadingArea/>
+    )
+  }
 
   return (
     <C.Container>
@@ -26,7 +34,11 @@ const Login = () => {
               <span onClick={() => setRegisterIsNeeded(false)}>Faça seu login aqui</span>
             </C.SpanDivArea>
           )}
-          <Form registerIsNeeded={registerIsNeeded} setRegisterIsNeeded={setRegisterIsNeeded}/>
+          <Form isLoading={isLoading} setIsLoading={setIsLoading} registerIsNeeded={registerIsNeeded} setRegisterIsNeeded={setRegisterIsNeeded}/>
+          <C.SpanWarning>
+            Devido a hospedagem do site ser gratuita, as funcionalidades
+            podem demorar um pouco, seja paciente!
+          </C.SpanWarning>
         </C.RightSideContainer>
       </C.Section>
     </C.Container>
