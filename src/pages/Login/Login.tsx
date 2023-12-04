@@ -34,7 +34,7 @@ const Login = () => {
               <span onClick={() => setRegisterIsNeeded(false)}>Faça seu login aqui</span>
             </C.SpanDivArea>
           )}
-          <Form isLoading={isLoading} setIsLoading={setIsLoading} registerIsNeeded={registerIsNeeded} setRegisterIsNeeded={setRegisterIsNeeded}/>
+          <Form setIsLoading={setIsLoading} registerIsNeeded={registerIsNeeded} setRegisterIsNeeded={setRegisterIsNeeded}/>
           <C.SpanWarning>
             Devido a hospedagem do site ser gratuita, as funcionalidades
             podem demorar um pouco, seja paciente!

@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Colors } from "../../globalStyles/globalStyles";
-import IonIcon from '@reacticons/ionicons';
 
 export const Container = styled.div`
   display: flex;

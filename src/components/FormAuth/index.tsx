@@ -10,13 +10,12 @@ import { useNavigate } from 'react-router-dom';
 
 
 type Props = {
-  isLoading: boolean;
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
   registerIsNeeded: boolean;
   setRegisterIsNeeded: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const Form = ({registerIsNeeded, setRegisterIsNeeded, isLoading, setIsLoading}: Props) => {
+const Form = ({registerIsNeeded, setRegisterIsNeeded, setIsLoading}: Props) => {
   const [errorMsg, setErrorMsg] = useState<string | null>();
 
   const authCtx = useContext(AuthContext);
