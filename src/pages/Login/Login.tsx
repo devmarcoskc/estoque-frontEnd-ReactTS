@@ -35,10 +35,12 @@ const Login = () => {
             </C.SpanDivArea>
           )}
           <Form setIsLoading={setIsLoading} registerIsNeeded={registerIsNeeded} setRegisterIsNeeded={setRegisterIsNeeded}/>
+          {/* 
           <C.SpanWarning>
             Devido a hospedagem do site ser gratuita, as funcionalidades
             podem demorar um pouco, seja paciente!
           </C.SpanWarning>
+          */}
         </C.RightSideContainer>
       </C.Section>
     </C.Container>

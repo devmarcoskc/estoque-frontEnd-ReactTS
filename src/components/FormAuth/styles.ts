@@ -29,11 +29,18 @@ export const Icon = styled(IonIcon)`
   color: ${Colors.primary200}
 `;
 
+export const IconPasswordController = styled(IonIcon)`
+  font-size: 23px;
+  margin-right: 7px;
+  color: ${Colors.primary200};
+  cursor: pointer;
+`
+
 export const Input = styled.input`
   width: 80%;
   outline: 0;
   border: none;
-  color: ${Colors.primary200};
+  color: ${Colors.primary400};
   font-weight: bold;
 
   &::placeholder {

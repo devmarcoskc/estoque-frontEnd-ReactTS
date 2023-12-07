@@ -17,6 +17,7 @@ type Props = {
 
 const Form = ({registerIsNeeded, setRegisterIsNeeded, setIsLoading}: Props) => {
   const [errorMsg, setErrorMsg] = useState<string | null>();
+  const [showPassword, setShowPassword] = useState<boolean>(false);
 
   const authCtx = useContext(AuthContext);
   const navigate = useNavigate();
@@ -102,10 +103,11 @@ const Form = ({registerIsNeeded, setRegisterIsNeeded, setIsLoading}: Props) => {
           <C.InputContainer>
             <C.Icon name="lock-closed-outline"/>
             <C.Input
-              type="text"
+              type={showPassword ? 'text' : 'password'}
               placeholder='Digite a senha'
               {...register('password')}
             />
+            <C.IconPasswordController onClick={() => setShowPassword(!showPassword)} name={showPassword ? 'eye-off-outline' : "eye-outline"}/>
            </C.InputContainer>
            {errors.password && <C.SpanError>{errors.password.message}</C.SpanError>}
            {errorMsg && (
